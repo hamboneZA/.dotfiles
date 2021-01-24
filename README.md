@@ -1,3 +1,3 @@
 # .dotfiles
 
-# ls to script directories && hardening.sh
+ls to script directories && hardening.sh
