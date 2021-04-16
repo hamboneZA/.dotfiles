@@ -27,7 +27,7 @@ fi
 #--------------------------------------------------------------------------------
 echo "Install basic Homebrew packages..."
 brew install python
-brew install git bash-completion tmux
+brew install git bash-completion tmux ruby
 brew install libsndfile libsoundio portaudio sox audacity spotifyd ffmpeg
 
 #--------------------------------------------------------------------------------
@@ -41,4 +41,16 @@ brew services start spotifyd
 #--------------------------------------------------------------------------------
 
 git clone https://github.com/mattstauffer/ohmyzsh-dotfiles.git && sh ohmyzsh-dotfiles/bootstrap.sh
+wget https://github.com/hamboneZA/t.git && cd t %% gem install t cd /
 wget https://github.com/stashapp/stash/releases/download/latest_develop/stash-osx && chmod u+x stash-osx && tmux new-session -d -s stash '.stash-osx --port 9090'
+
+#--------------------------------------------------------------------------------
+# Media Scrapers
+#--------------------------------------------------------------------------------
+echo "Install media scrapers..."
+mkdir scrape && cd $_
+git remote add origin https://github.com/hamboneZA/youtube-dl.git
+git branch -M main
+git push -u origin main
+
+echo "TODO: t authorize"
