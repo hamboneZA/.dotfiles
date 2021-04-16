@@ -27,8 +27,9 @@ fi
 #--------------------------------------------------------------------------------
 echo "Install basic Homebrew packages..."
 brew install python
-brew install git bash-completion tmux ruby
+brew install git bash-completion tmux ruby jp q
 brew install libsndfile libsoundio portaudio sox audacity spotifyd ffmpeg
+xcode-select --install
 
 #--------------------------------------------------------------------------------
 # Enable Brew Services
@@ -69,6 +70,12 @@ git checkout MOODLE_310_STABLE cd
 
 
 #--------------------------------------------------------------------------------
+# ANDROID
+#--------------------------------------------------------------------------------
+brew install android-platform-tools
+brew install scrcpy
+
+#--------------------------------------------------------------------------------
 # END ZONE
 #--------------------------------------------------------------------------------
 
@@ -84,7 +91,8 @@ while true; do
 done
 
 
-
-
-
-
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+sudo nvram StartupMute=%01
