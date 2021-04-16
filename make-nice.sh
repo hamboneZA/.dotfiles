@@ -49,8 +49,42 @@ wget https://github.com/stashapp/stash/releases/download/latest_develop/stash-os
 #--------------------------------------------------------------------------------
 echo "Install media scrapers..."
 mkdir scrape && cd $_
-git remote add origin https://github.com/hamboneZA/youtube-dl.git
-git branch -M main
-git push -u origin main
+git clone https://github.com/hamboneZA/youtube-dl.git cd /
+
+#--------------------------------------------------------------------------------
+# ELP
+#--------------------------------------------------------------------------------
+
+mkdir elp && cd $_
+git clone origin https://github.com/hamboneZA/elearning-pro-moodle-panel.git
+
+#--------------------------------------------------------------------------------
+# MOODLE
+#--------------------------------------------------------------------------------
+git clone git://git.moodle.org/moodle.git
+cd moodle
+git branch -a
+git branch --track MOODLE_310_STABLE origin/MOODLE_310_STABLE
+git checkout MOODLE_310_STABLE cd
+
+
+#--------------------------------------------------------------------------------
+# END ZONE
+#--------------------------------------------------------------------------------
 
 echo "TODO: t authorize"
+set -- $(locale LC_MESSAGES)
+yesptrn="$1"; noptrn="$2"; yesword="$3"; noword="$4"
+
+while true; do
+    read -p "Readt to authorize Twitter (${yesword} / ${noword})? " yn
+    if [[ "$yn" =~ $yesexpr ]]; then t authorize; exit; fi
+    if [[ "$yn" =~ $noexpr ]]; then exit; fi
+    echo "Answer ${yesword} / ${noword}."
+done
+
+
+
+
+
+
