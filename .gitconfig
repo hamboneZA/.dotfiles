@@ -1,0 +1,16 @@
+[ui]
+	color = true
+
+[user]
+	name = James Hamilton
+	email = jamesh@outshine.co.za
+
+[alias]
+	clean-branches = "!git branch | grep -v master | grep -v develop | tr -d '*' | xargs git branch -d"
+	list-tags = "!git log --tags --simplify-by-decoration --pretty='format:%ai %d' | sort -r"
+
+[core]
+	excludesfile = /Users/hamboneZA/.gitignore
+
+[push]
+	default = simple
