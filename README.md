@@ -1,3 +1,2 @@
 # .dotfiles
-
-OSX
+Tbh, you should make your own... 
